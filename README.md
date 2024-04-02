@@ -3,7 +3,7 @@
 # Jogo da Velha com IA
 
 Um aplicativo de Jogo da Velha construído em Angular, 
-com funcionalidades de jogar contra uma inteligência artifial em 
+com funcionalidades de jogar contra uma inteligência artificial em 
 3 dificuldades diferentes ou jogar localmente com um amigo.
 
 <br>
@@ -101,6 +101,6 @@ Se você tiver alguma dúvida ou sugestão, entre em contato clicando [aqui](mai
 
 ## 🔗 Links
 
-### Deploy: https://link-do-deploy.com.br
+### Deploy: https://tic-tac-toe-with-ia.vercel.app/
 
  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00000080,50:161b2280,100:30363D9d&height=150&section=footer" width="100%">
