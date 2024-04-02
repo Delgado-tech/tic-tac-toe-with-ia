@@ -1,3 +1,5 @@
+<img id="header" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d9488,100:111827&height=150&section=header" width="100%"/>
+
 # Jogo da Velha com IA
 
 Um aplicativo de Jogo da Velha construído em Angular, 
@@ -21,14 +23,14 @@ com funcionalidades de jogar contra uma inteligência artifial em
 
 ### 1. Robô Adversário
    
-Foi programado uma inteligência artificial para jogar contrar o usuário, ela rastreia todo o tabuleiro verificando a melhor jogada a se fazer
-A seguir veja uma lista com as ações em ordem prioritária que o bot executa.
+Foi programado uma inteligência artificial para jogar contra o usuário, ela rastreia todo o tabuleiro verificando a melhor jogada a se fazer. <br>
+A seguir veja uma lista com as ações em ordem prioritária que a IA executa.
 
 
 | Prioridade     | Ação                                | Método                                                                                                          |
 |:--------------:|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| 1              | Marcar um espaço para ganhar o jogo | Rastreia o tabuleiro inteiro verificando se é possível ganhar com o próximo movimento                           |
-| 2              | Impedir que o adversário ganhe      | Rastreia o tabuleiro inteiro verificando se a próxima jogado do usúario pode resultar em uma vitória e o impede |
+| 1              | Ganhar o jogo                       | Rastreia o tabuleiro inteiro verificando se é possível ganhar com o próximo movimento                           |
+| 2              | Impedir que o adversário ganhe      | Rastreia o tabuleiro inteiro verificando se a próxima jogada do usúario pode resultar em uma vitória e o impede |
 | 3              | Impedir estratégia de diagonais     | Caso o usuário marque duas diagonais opostas a IA marca uma lateral ao centro impedindo a estratégia            |
 | 4              | Marcar o centro                     | O centro se não foi preenchido é priorizado                                                                     |
 | 5              | Marcar diagonais                    | As diagonais são priorizadas se o centro foi preenchido                                                         |
@@ -39,75 +41,66 @@ A seguir veja uma lista com as ações em ordem prioritária que o bot executa.
    
 Foram programados 4 modos de jogo, sendo eles:
 
-| Modo de Jogo | Descrição |
-|:--------------:|--------------|
-| Fácil | A IA se comporta mais desleixadamente, tendo apenas 25% de chance de realizar as ações de 1-5 |
-| Médio | A IA se comporta melhor, tendo chance 50% de chance de realizar as ações  |
-| Impossível |  |
-| 2 Jogadores |  |
+| Modo_de_jogo | Descrição                                                                                                                         |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Fácil        | A IA se comporta mais desleixadamente, tendo apenas 25% de chance de realizar as ações [1, 3, 4, 5] e 0% de chance a ação [2]     |
+| Médio        | A IA se comporta melhor, tendo 50% de chance de realizar as ações [1-5]                                                           |
+| Impossível   | A IA se comporta da melhor forma possível, ao jogar nesse modo o resultado sempre será um empate ou uma vitória por parte da IA   |
+| 2_Jogadores  | É desativado o sistema de IA, permitindo que o usuário jogue também no turno que seria da IA (podendo assim jogar com um amigo)   |
 
+
+### 3. Scoreboard
+
+Foi implementado um placar para acompanhar a pontuação geral.
+
+
+### 4. Interface amigável com animações
+
+Foi desenvolvido uma interface 100% amigável e animada, bem como uma tela de vitória.
+
+![animations](https://github.com/Delgado-tech/tic-tac-toe-with-ia/assets/60985347/8d1548fb-bc22-48ba-8531-26ae2645f88e)
+
+<br>
 
 ## Instalação
 
 1. Clone o repositório
 ```bash
-git clone https://github.com/[seu-usuario]/[nome-do-app].git
-cd [nome-do-app]
+git clone https://github.com/Delgado-tech/tic-tac-toe-with-ia.git
+cd tic-tac-toe-with-ia
 ```
 
 2. Instale as dependências
 ```bash
-npm install
+pnpm install
 ```
 
-[Adicione mais informações se necessário]
-
-
-## Configuração da API
-
-Para a utilização do projeto é necessário a inicialização da API.
-Você pode acessar a documentação da API [aqui](link-para-a-documentacao-da-api).
-
-[Adicione mais informações se necessário]
-
+<br>
 
 ## Uso
 
 1. Inicie o servidor de desenvolvimento
 ```bash
-npm start
+npm run start
 ```
 
-2. Abra o navegador e vá para `http://localhost:3000`.
+2. Abra o navegador e vá para `http://localhost:4200`.
 
-3. Após isso xxx...
+3. Após isso divirta-se!!!
 
-[Adicione mais informações se necessário]
+<br>
 
-
-## Contribuição
-
-Se você quiser contribuir para este projeto, siga estas etapas:
-
-1. Faça um fork do projeto.
-2. Crie uma branch para a sua feature `git checkout -b feat/NomeDaSuaFeature`.
-3. Faça commit das suas alterações `git commit -am "[add/edit/del]/feat: Descrição da feature"`.
-4. Faça push para a branch `git push origin feat/NomeDaSuaFeature`.
-5. Crie um novo Pull Request.
-
-
-## Licença
+## 📜 Licença
 
 Este projeto está licenciado sob a [Licença MIT](link-para-a-licenca).
 
 
-## Contato
+## ☎️ Contato
 
-Se você tiver alguma dúvida ou sugestão, entre em contato através 
-do email: [seu-email@example.com](mailto:seu-email@example.com).
+Se você tiver alguma dúvida ou sugestão, entre em contato clicando [aqui](mailto:leonardo.delgadosp2014@gmail.com).
 
-## Links
+## 🔗 Links
 
-API: https://link-da-api.com.br
-Figma: https://link-do-figma.com.br
-Deploy: https://link-do-deploy.com.br
+### Deploy: https://link-do-deploy.com.br
+
+ <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00000080,50:161b2280,100:30363D9d&height=150&section=footer" width="100%">
