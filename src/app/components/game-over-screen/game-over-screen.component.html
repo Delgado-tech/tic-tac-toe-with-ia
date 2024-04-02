@@ -1,0 +1,16 @@
+<div
+    class="fixed w-full h-full backdrop-blur-md flex flex-col gap-2 items-center z-50 justify-center select-none animate-fade-in opacity-0">
+    <div class="flex gap-2 items-center h-[100px]">
+        @if(winner === Shape.X || isDraw) {
+        <lucide-icon [img]="XIcon" class="size-[100px] text-zinc-700" />
+        }
+        @if(winner === Shape.CIRCLE || isDraw) {
+        <lucide-icon [img]="CircleIcon" class="size-20 text-white" />
+        }
+    </div>
+    <span [attr.data-draw]="isDraw"
+        class="uppercase text-4xl text-zinc-700 data-[draw=true]:text-zinc-200 mb-16 drop-shadow-sm">{{isDraw ?
+        "empate" : "venceu!"}}</span>
+
+    <ng-content />
+</div>

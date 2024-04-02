@@ -1,1 +1,103 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	@apply font-poppins;
+}
+
+.animate-open-line-center-x {
+	animation: openLineCenterX 0.3s ease-in-out 0.4s forwards;
+}
+
+.animate-open-line-center-y {
+	animation: openLineCenterY 0.3s ease-in-out 0.1s forwards;
+}
+
+.animate-open-line-x {
+	animation: openLineX 0.3s ease-out 0.1s forwards;
+}
+
+.animate-open-line-y {
+	animation: openLineY 0.3s ease-out 0.1s forwards;
+}
+
+.animate-open-line-xy {
+	animation: openLineXY 0.3s ease-out 0.1s forwards;
+}
+
+.animate-show-up {
+	animation: showUp 0.3s ease-out forwards;
+}
+
+.animate-fade-in {
+	animation: fadeIn 0.3s ease-in 0.6s forwards;
+}
+
+@keyframes openLineX {
+	0% {
+		@apply w-0;
+	}
+	100% {
+		@apply w-full;
+	}
+}
+
+@keyframes openLineY {
+	0% {
+		@apply h-0;
+	}
+	100% {
+		@apply h-full;
+	}
+}
+
+@keyframes openLineXY {
+	0% {
+		@apply w-0;
+	}
+	100% {
+		@apply w-[138%];
+	}
+}
+
+@keyframes openLineCenterX {
+	0% {
+		@apply left-1/2 w-0;
+	}
+	100% {
+		@apply left-0 w-full;
+	}
+}
+
+@keyframes openLineCenterY {
+	0% {
+		@apply top-1/2 h-0;
+	}
+	100% {
+		@apply top-0 h-full;
+	}
+}
+
+@keyframes showUp {
+	0% {
+		transform: scale(0%);
+	}
+	75% {
+		transform: scale(110%);
+	}
+	100% {
+		transform: scale(100%);
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		@apply opacity-0;
+	}
+	100% {
+		@apply opacity-100;
+	}
+}

@@ -1,0 +1,21 @@
+<footer class="bg-zinc-800 flex gap-8 p-8 items-center max-sm:flex-col">
+    <div class="w-full max-sm:text-center">
+        <span class="text-sm text-zinc-400 select-none">Powered by:</span>
+        <p class="font-medium text-zinc-300">Leonardo Delgado</p>
+    </div>
+    <div class="flex gap-2 max-sm:items-center">
+        <a [href]="socialMediaLink.github" target="_blank" title="GitHub">
+            <app-button
+                innerClass="bg-zinc-700 hover:bg-zinc-600 hover:text-white text-zinc-300 flex justify-center px-6 py-2">
+                <lucide-icon [img]="GithubIcon" class="size-7" />
+            </app-button>
+        </a>
+
+        <a [href]="socialMediaLink.linkedin" target="_blank" title="LinkedIn">
+            <app-button
+                innerClass="bg-sky-700 hover:bg-sky-600 text-zinc-300 hover:text-white flex justify-center px-6 py-2">
+                <lucide-icon [img]="LinkedinIcon" class="size-7" />
+            </app-button>
+        </a>
+    </div>
+</footer>

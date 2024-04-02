@@ -1,0 +1,8 @@
+<div class="flex flex-col gap-2">
+    <div [attr.data-my-turn]="highlight" class="group flex gap-2 items-center bg-teal-700 px-2 py-2 
+                        justify-between rounded-lg h-12 transition-all data-[my-turn=true]:bg-teal-500
+                    ">
+        <lucide-angular [img]="Icon" [class]="twMerge('size-8 group-data-[my-turn=true]:text-teal-800', iconColor)" />
+        <span [attr.data-zero]="score === 0" class="data-[zero=true]:text-teal-800 text-2xl">{{score}}</span>
+    </div>
+</div>
