@@ -1,0 +1,54 @@
+<div class="relative">
+    <!-- WIN TRACE -->
+    <div class="[&>:nth-child(n)]:z-10">
+        @if (gameService.getWinTrace() && gameService.getWinner() && !gameService.isDraw()) {
+        @if (gameService.getWinTrace()!.type === "vertical") {
+        <span class="absolute max-sm:w-1 w-2 bg-zinc-700 animate-open-line-y"
+            [style]="{left: (99 / 6 * ( gameService.getWinTrace()!.index * 2 + 1 ))+'%'}"></span>
+        }
+        @if (gameService.getWinTrace()!.type === "horizontal") {
+        <span class="absolute max-sm:h-1 h-2 bg-zinc-700 animate-open-line-x"
+            [style]="{top: (99 / 6 * ( gameService.getWinTrace()!.index * 2 + 1 ))+'%'}"></span>
+        }
+        @if (gameService.getWinTrace()!.type === "diagonal" && gameService.getWinTrace()!.index === 0) {
+        <span
+            class="absolute max-sm:h-1 h-2 bg-zinc-700 rotate-[44.5deg] origin-top-left top-1 left-1 animate-open-line-xy"></span>
+        }
+        @else if (gameService.getWinTrace()!.type === "diagonal") {
+        <span
+            class="absolute max-sm:h-1 h-2 bg-zinc-700 -rotate-45 origin-top-right top-1 right-1 animate-open-line-xy"></span>
+        }
+        }
+    </div>
+
+    <!-- GRADE -->
+    @if (gameService.getStartTrigger()) {
+    <div>
+        <span class="absolute h-1 bg-teal-700 top-1/3 animate-open-line-center-x"></span>
+        <span class="absolute h-1 bg-teal-700 top-2/3 animate-open-line-center-x"></span>
+        <span class="absolute w-1 bg-teal-700 left-1/3 animate-open-line-center-y"></span>
+        <span class="absolute w-1 bg-teal-700 left-2/3 animate-open-line-center-y"></span>
+    </div>
+    }
+    <!-- TABULEIRO -->
+    <table>
+        <tbody>
+            @for (row of gameService.getAreas(); track row) {
+            <tr>
+                @for (col of gameService.getAreas(); track col) {
+                <td class="max-sm:size-28 size-32 cursor-pointer select-none bg-opacity-10 hover:bg-teal-500 transition-all"
+                    (click)="gameService.setSpace(row, col)">
+                    <span class="flex items-center justify-center">
+                        @if (gameService.getBoard()[row][col] === Shape.CIRCLE) {
+                        <lucide-icon [img]="CircleIcon" class="size-20 max-sm:size-12 text-white animate-show-up" />
+                        } @else if (gameService.getBoard()[row][col] === Shape.X) {
+                        <lucide-icon [img]="XIcon" class="size-[100px] max-sm:size-16 text-zinc-700 animate-show-up" />
+                        }
+                    </span>
+                </td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
