@@ -13,7 +13,7 @@ export class FooterComponent {
 	protected readonly GithubIcon = GithubIcon;
 
 	protected readonly socialMediaLink = {
-		github: 'https://github.com/Delgado-tech/',
+		github: 'https://github.com/Delgado-tech/tic-tac-toe-with-ia',
 		linkedin: 'https://www.linkedin.com/in/leonardo-delgado-1808891b7/',
 	};
 }
