@@ -92,7 +92,7 @@ npm run start
 
 ## 📜 Licença
 
-Este projeto está licenciado sob a [Licença MIT](link-para-a-licenca).
+Este projeto está licenciado sob a [Licença MIT](https://github.com/Delgado-tech/tic-tac-toe-with-ia/blob/main/LICENSE).
 
 
 ## ☎️ Contato
