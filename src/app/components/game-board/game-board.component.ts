@@ -7,16 +7,14 @@ import {
 } from 'lucide-angular';
 import { GameService } from '../../services/game.service';
 import { Shape } from '../../services/game.service.interfaces';
-import { ButtonComponent } from '../button/button.component';
-import { HomeComponent } from '../home/home.component';
 
 @Component({
-	selector: 'app-game-over-screen',
+	selector: 'app-game-board',
 	standalone: true,
-	imports: [LucideAngularModule, ButtonComponent, HomeComponent],
-	templateUrl: './game-over-screen.component.html',
+	imports: [LucideAngularModule],
+	templateUrl: './game-board.component.html',
 })
-export class GameOverScreenComponent {
+export class GameBoardComponent {
 	protected readonly XIcon = XIcon;
 	protected readonly CircleIcon = CircleIcon;
 	protected readonly ResetIcon = RotateCcwIcon;

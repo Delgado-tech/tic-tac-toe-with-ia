@@ -1,0 +1,10 @@
+<div class="mb-4 flex flex-col gap-1 items-center">
+    <span class="text-teal-800 font-medium">Modo de Jogo</span>
+    <select class="rounded-lg bg-teal-700 px-2 py-1 outline-none border-r-8 cursor-pointer border-transparent"
+        (change)="gameService.setGameModeByInput($event)">
+        <option [value]="GameMode.EASY">Fácil</option>
+        <option [value]="GameMode.MEDIUM" [defaultSelected]="true">Normal</option>
+        <option [value]="GameMode.IMPOSSIBLE">Imposível</option>
+        <option [value]="GameMode.LOCAL">2 Jogadores</option>
+    </select>
+</div>

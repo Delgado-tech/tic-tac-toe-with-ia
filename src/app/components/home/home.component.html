@@ -1,104 +1,29 @@
 <section class="w-full bg-teal-600 text-white relative">
     <!-- GAMEOVER SCREEN -->
-    @if(winner || draw) {
-    <app-game-over-screen [winner]="winner" [isDraw]="draw">
-        <!-- BOTÕES -->
-        <div class="flex gap-4">
-            <!-- CONTINUAR -->
-            <app-button text="Continuar" (click)="start()"
-                innerClass=" bg-emerald-500 hover:bg-emerald-300 px-8 py-4" />
-
-            <!-- REINICIAR -->
-            <app-button (click)="restart()" innerClass="px-8 py-4">
-                <lucide-icon [img]="ResetIcon" class="size-7" />
-            </app-button>
-        </div>
-    </app-game-over-screen>
+    @if(gameService.getWinner() || gameService.isDraw()) {
+    <app-game-over-screen />
     }
 
     <main class="min-h-screen h-full flex items-center justify-center flex-col gap-16 py-[2vh] px-4 z-0 max-sm:gap-8">
         <div class="text-center text-xl w-full max-w-[500px] select-none">
             <!-- SELETOR DO MODO DE JOGO -->
-            <div class="mb-4 flex flex-col gap-1 items-center">
-                <span class="text-teal-800 font-medium">Modo de Jogo</span>
-                <select
-                    class="rounded-lg bg-teal-700 px-2 py-1 outline-none border-r-8 cursor-pointer border-transparent"
-                    (change)="setGameModeByInput($event)">
-                    <option [value]="GameMode.EASY">Fácil</option>
-                    <option [value]="GameMode.MEDIUM" [defaultSelected]="true">Normal</option>
-                    <option [value]="GameMode.IMPOSSIBLE">Imposível</option>
-                    <option [value]="GameMode.LOCAL">2 Jogadores</option>
-                </select>
-            </div>
+            <app-game-mode-selector />
 
             <!-- PLACAR -->
             <div class="grid grid-cols-2 gap-8">
                 <!-- JOGADOR 1 -->
-                <app-player-score [Icon]="XIcon" [score]="score.player1" [highlight]="isPlayer1Turn" />
+                <app-player-score [Icon]="XIcon" [score]="gameService.getScore().player1"
+                    [highlight]="gameService.getIsPlayer1Turn()" />
                 <!-- JOGADOR 2 -->
-                <app-player-score [Icon]="CircleIcon" iconColor="text-orange-300" [score]="score.player2"
-                    [highlight]="!isPlayer1Turn" />
+                <app-player-score [Icon]="CircleIcon" iconColor="text-orange-300"
+                    [score]="gameService.getScore().player2" [highlight]="!gameService.getIsPlayer1Turn()" />
             </div>
         </div>
-        <div class="relative">
-            <!-- WIN TRACE -->
-            <div class="[&>:nth-child(n)]:z-10">
-                @if (winTrace && winner && !draw) {
-                @if (winTrace.type === "vertical") {
-                <span class="absolute max-sm:w-1 w-2 bg-zinc-700 animate-open-line-y"
-                    [style]="{left: (99 / 6 * ( winTrace.index * 2 + 1 ))+'%'}"></span>
-                }
-                @if (winTrace.type === "horizontal") {
-                <span class="absolute max-sm:h-1 h-2 bg-zinc-700 animate-open-line-x"
-                    [style]="{top: (99 / 6 * ( winTrace.index * 2 + 1 ))+'%'}"></span>
-                }
-                @if (winTrace.type === "diagonal" && winTrace.index === 0) {
-                <span
-                    class="absolute max-sm:h-1 h-2 bg-zinc-700 rotate-[44.5deg] origin-top-left top-1 left-1 animate-open-line-xy"></span>
-                }
-                @else if (winTrace.type === "diagonal") {
-                <span
-                    class="absolute max-sm:h-1 h-2 bg-zinc-700 -rotate-45 origin-top-right top-1 right-1 animate-open-line-xy"></span>
-                }
-                }
-            </div>
-
-            <!-- GRADE -->
-            @if (startTrigger) {
-            <div>
-                <span class="absolute h-1 bg-teal-700 top-1/3 animate-open-line-center-x"></span>
-                <span class="absolute h-1 bg-teal-700 top-2/3 animate-open-line-center-x"></span>
-                <span class="absolute w-1 bg-teal-700 left-1/3 animate-open-line-center-y"></span>
-                <span class="absolute w-1 bg-teal-700 left-2/3 animate-open-line-center-y"></span>
-            </div>
-            }
-            <!-- TABULEIRO -->
-            <table>
-                <tbody>
-                    @for (row of areas; track row) {
-                    <tr>
-                        @for (col of areas; track col) {
-                        <td class="max-sm:size-28 size-32 cursor-pointer select-none bg-opacity-10 hover:bg-teal-500 transition-all"
-                            (click)="setSpace(row, col)">
-                            <span class="flex items-center justify-center">
-                                @if (matrix3b3[row][col] === Shape.CIRCLE) {
-                                <lucide-icon [img]="CircleIcon"
-                                    class="size-20 max-sm:size-12 text-white animate-show-up" />
-                                } @else if (matrix3b3[row][col] === Shape.X) {
-                                <lucide-icon [img]="XIcon"
-                                    class="size-[100px] max-sm:size-16 text-zinc-700 animate-show-up" />
-                                }
-                            </span>
-                        </td>
-                        }
-                    </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+        <!-- TABULEIRO -->
+        <app-game-board />
 
         <!-- REINICIAR JOGO -->
-        <app-button (click)="restart()">
+        <app-button (click)="gameService.restart()">
             <lucide-icon [img]="ResetIcon" class="size-7" />
         </app-button>
 

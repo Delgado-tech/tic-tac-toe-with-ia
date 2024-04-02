@@ -1,16 +1,27 @@
 <div
     class="fixed w-full h-full backdrop-blur-md flex flex-col gap-2 items-center z-50 justify-center select-none animate-fade-in opacity-0">
     <div class="flex gap-2 items-center h-[100px]">
-        @if(winner === Shape.X || isDraw) {
+        @if(gameService.getWinner() === Shape.X || gameService.isDraw()) {
         <lucide-icon [img]="XIcon" class="size-[100px] text-zinc-700" />
         }
-        @if(winner === Shape.CIRCLE || isDraw) {
+        @if(gameService.getWinner() === Shape.CIRCLE || gameService.isDraw()) {
         <lucide-icon [img]="CircleIcon" class="size-20 text-white" />
         }
     </div>
-    <span [attr.data-draw]="isDraw"
-        class="uppercase text-4xl text-zinc-700 data-[draw=true]:text-zinc-200 mb-16 drop-shadow-sm">{{isDraw ?
+    <span [attr.data-draw]="gameService.isDraw()"
+        class="uppercase text-4xl text-zinc-700 data-[draw=true]:text-zinc-200 mb-16 drop-shadow-sm">{{gameService.isDraw()
+        ?
         "empate" : "venceu!"}}</span>
 
-    <ng-content />
+    <!-- BOTÕES -->
+    <div class="flex gap-4">
+        <!-- CONTINUAR -->
+        <app-button text="Continuar" (click)="gameService.start()"
+            innerClass=" bg-emerald-500 hover:bg-emerald-300 px-8 py-4" />
+
+        <!-- REINICIAR -->
+        <app-button (click)="gameService.restart()" innerClass="px-8 py-4">
+            <lucide-icon [img]="ResetIcon" class="size-7" />
+        </app-button>
+    </div>
 </div>
