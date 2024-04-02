@@ -101,6 +101,6 @@ Se você tiver alguma dúvida ou sugestão, entre em contato clicando [aqui](mai
 
 ## 🔗 Links
 
-### Deploy: https://link-do-deploy.com.br
+### Deploy: https://tic-tac-toe-with-ia.vercel.app/
 
  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00000080,50:161b2280,100:30363D9d&height=150&section=footer" width="100%">
