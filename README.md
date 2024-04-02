@@ -3,7 +3,7 @@
 # Jogo da Velha com IA
 
 Um aplicativo de Jogo da Velha construído em Angular, 
-com funcionalidades de jogar contra uma inteligência artifial em 
+com funcionalidades de jogar contra uma inteligência artificial em 
 3 dificuldades diferentes ou jogar localmente com um amigo.
 
 <br>
