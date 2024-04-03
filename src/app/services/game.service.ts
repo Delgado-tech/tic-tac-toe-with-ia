@@ -279,7 +279,7 @@ export class GameService {
 				}
 			}
 
-			// se o jogador marcar duas pontas do meio marca a diagonal entre elas
+			// se o jogador marcar duas laterais do meio marca a diagonal entre elas
 			// antes é feito um sorteio com base no modo de jogo escolhido para determinar se será realizado essa ação
 			if (this.shouldBotPerformThisAction()) {
 				for (let i = 0; i < 2; i++) {
@@ -290,6 +290,27 @@ export class GameService {
 						) {
 							if (this.matrix3b3[i * 2][j * 2] !== Shape.NONE) continue;
 							this.setSpace(i * 2, j * 2, true);
+							return;
+						}
+					}
+				}
+			}
+
+			// se uma digonal e uma lateral do meio oposta for marcada, marca em uma das diagonais entre a lateral citada
+			// antes é feito um sorteio com base no modo de jogo escolhido para determinar se será realizado essa ação
+			if (this.shouldBotPerformThisAction()) {
+				for (let i = 0; i < 2; i++) {
+					for (let j = 0; j < 2; j++) {
+						const row = i * 2;
+						const col = j * 2;
+
+						if (
+							this.matrix3b3[row][col] === Shape.X &&
+							(this.matrix3b3[2 - row][1] === Shape.X ||
+								this.matrix3b3[1][2 - col] === Shape.X)
+						) {
+							if (this.matrix3b3[2 - row][2 - col] !== Shape.NONE) continue;
+							this.setSpace(2 - row, 2 - col, true);
 							return;
 						}
 					}
