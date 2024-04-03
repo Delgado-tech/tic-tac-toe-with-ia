@@ -279,6 +279,23 @@ export class GameService {
 				}
 			}
 
+			// se o jogador marcar duas pontas do meio marca a diagonal entre elas
+			// antes é feito um sorteio com base no modo de jogo escolhido para determinar se será realizado essa ação
+			if (this.shouldBotPerformThisAction()) {
+				for (let i = 0; i < 2; i++) {
+					for (let j = 0; j < 2; j++) {
+						if (
+							this.matrix3b3[i * 2][1] === Shape.X &&
+							this.matrix3b3[1][j * 2] === Shape.X
+						) {
+							if (this.matrix3b3[i * 2][j * 2] !== Shape.NONE) continue;
+							this.setSpace(i * 2, j * 2, true);
+							return;
+						}
+					}
+				}
+			}
+
 			// se o meio já foi ocupado continua preenchendo as bordas restantes
 			// antes é feito um sorteio com base no modo de jogo escolhido para determinar se será realizado essa ação
 			if (this.shouldBotPerformThisAction()) {
